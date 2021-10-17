@@ -68,7 +68,7 @@ function addTable() {
     if (k === 0) {
       header.addClass("derechosHeader").text("Derechos");
     } else {
-      header.append("<img src='content/ods-" + k + ".png' />");
+      header.css("background-image", "url(content/ods-" + k + ".png)");
     }
     table.append(header);
   }
@@ -90,13 +90,27 @@ function addTable() {
         .addClass("emptyCell")
         .attr("id", "cell-" + i + "," + j)
         .attr("data-click-state", 0)
+        .attr("data-hover-state", 0)
         .click(function () {
           if ($(this).attr("data-click-state") == 1) {
             $(this).attr("data-click-state", 0);
-            $(this).css("background-color", "white");
+            $(this).css("background-color", "transparent");
           } else {
             $(this).attr("data-click-state", 1);
             $(this).css("background-color", color);
+            $(this).css("border-radius", "0%");
+          }
+        })
+        .hover(function () {
+          if ($(this).attr("data-click-state") == 0) {
+            if ($(this).attr("data-hover-state") == 1) {
+              $(this).attr("data-hover-state", 0);
+              $(this).css("background-color", "transparent");
+            } else {
+              $(this).attr("data-hover-state", 1);
+              $(this).css("background-color", color);
+              $(this).css("border-radius", "100%");
+            }
           }
         });
       row.append(cell);
