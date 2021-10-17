@@ -20,7 +20,10 @@ table {
   }
 .tabHeader{
     color:white;
-    background-size: cover;
+    /*background-size: cover;*/
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .derechosHeader{
     width: 15vw;
