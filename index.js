@@ -57,6 +57,7 @@ let colors = [
   "#00689D",
   "#19486A",
 ];
+let correct = [];
 
 function addTable() {
   //create table
@@ -66,7 +67,7 @@ function addTable() {
   for (k = 0; k <= 17; k++) {
     var header = $("<th>").addClass("tabHeader");
     if (k === 0) {
-      header.addClass("derechosHeader").text("Derechos");
+      header.addClass("derechosHeader").append($("<h1>").text("Derechos"));
     } else {
       header.css("background-image", "url(content/ods-" + k + ".png)");
     }

@@ -1,8 +1,12 @@
+body{
+    margin: 0px;
+}
 table {
     text-align: left;
     vertical-align: middle;
     position: relative;
     border-collapse: collapse; 
+    font-family: 'Montserrat', sans-serif;
   }
   th, td {
       border: 1px solid grey;
@@ -10,16 +14,18 @@ table {
       height: 5vw;
     }
     th {
-    background-color: white;
+    background-color: grey;
     position: sticky;
     top: 0; /* Don't forget this, required for the stickiness */
   }
 .tabHeader{
+    color:white;
     background-size: cover;
 }
 .derechosHeader{
     width: 15vw;
 }
 .emptyCell{
+    text-align: center;
     cursor:pointer;
 }
