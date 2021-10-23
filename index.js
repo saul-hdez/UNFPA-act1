@@ -1,5 +1,8 @@
 window.onload = function () {
   addTable();
+};
+
+window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
