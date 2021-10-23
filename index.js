@@ -1,5 +1,6 @@
 window.onload = function () {
   addTable();
+  window.scrollTo(0, 0);
 };
 
 let derechos = [
@@ -57,7 +58,30 @@ let colors = [
   "#00689D",
   "#19486A",
 ];
-let correct = [];
+let correct = [
+  "0-0",
+  "0-9",
+  "0-15",
+  "1-0",
+  "1-6",
+  "2-0",
+  "2-4",
+  "2-7",
+  "3-1",
+  "3-11",
+  "3-12",
+  "3-13",
+  "3-14",
+  "4-2",
+  "4-15",
+  "5-2",
+  "5-5",
+  "5-11",
+  "5-12",
+  "5-13",
+  "5-14",
+];
+let answers = [];
 
 function addTable() {
   //create table
@@ -89,25 +113,41 @@ function addTable() {
       let color = colors[j];
       var cell = $("<td>")
         .addClass("emptyCell")
-        .attr("id", "cell-" + i + "," + j)
+        .attr("id", i + "-" + j)
         .attr("data-click-state", 0)
         .attr("data-hover-state", 0)
         .click(function () {
           if ($(this).attr("data-click-state") == 1) {
+            //remove color
             $(this).attr("data-click-state", 0);
             $(this).css("background-color", "transparent");
+            const index = answers.indexOf($(this).attr("id"));
+            if (index > -1) {
+              answers.splice(index, 1);
+            }
           } else {
+            //color
             $(this).attr("data-click-state", 1);
             $(this).css("background-color", color);
             $(this).css("border-radius", "0%");
+            answers.push($(this).attr("id"));
           }
+          $("#ammount").html(
+            "haz seleccionado " +
+              answers.length +
+              " de " +
+              correct.length +
+              " respuestas posibles"
+          );
         })
         .hover(function () {
           if ($(this).attr("data-click-state") == 0) {
+            //remove colored circle
             if ($(this).attr("data-hover-state") == 1) {
               $(this).attr("data-hover-state", 0);
               $(this).css("background-color", "transparent");
             } else {
+              //add color circle
               $(this).attr("data-hover-state", 1);
               $(this).css("background-color", color);
               $(this).css("border-radius", "100%");
@@ -120,4 +160,53 @@ function addTable() {
   }
 
   $("#here_table").append(table);
+}
+
+function hoverFunc(cell) {}
+
+function checkAnswers() {
+  $(".emptyCell").html("&nbsp;");
+
+  //answered correctly
+  rightAnswered = answers.map((answer) => {
+    if (correct.includes(answer)) {
+      return answer;
+    }
+  });
+  rightAnswered = rightAnswered.filter((x) => x !== undefined);
+
+  //answered wrong
+  wrongAnswered = answers.map((answer) => {
+    if (!correct.includes(answer)) {
+      return answer;
+    }
+  });
+  wrongAnswered = wrongAnswered.filter((x) => x !== undefined);
+
+  //missing to answer
+  missingAnswers = correct.map((answer) => {
+    if (!answers.includes(answer)) {
+      return answer;
+    }
+  });
+  missingAnswers = missingAnswers.filter((x) => x !== undefined);
+
+  console.log(correct);
+  console.log(answers);
+  console.log(rightAnswered);
+  console.log(wrongAnswered);
+  console.log(missingAnswers);
+
+  // Returns a Promise that resolves after "ms" Milliseconds
+  const timer = (ms) => new Promise((res) => setTimeout(res, ms));
+
+  rightAnswered.map((cell) => {
+    $("#" + cell).text("✔️");
+  });
+  wrongAnswered.map((cell) => {
+    $("#" + cell).text("❌");
+  });
+  missingAnswers.map((cell) => {
+    $("#" + cell).text("⚠️");
+  });
 }
