@@ -1,9 +1,7 @@
 window.onload = function () {
-  addTable();
-};
-
-window.onbeforeunload = function () {
   window.scrollTo(0, 0);
+
+  addTable();
 };
 
 let derechos = [
@@ -135,13 +133,8 @@ function addTable() {
             $(this).css("border-radius", "0%");
             answers.push($(this).attr("id"));
           }
-          $("#ammount").html(
-            "haz seleccionado " +
-              answers.length +
-              " de " +
-              correct.length +
-              " respuestas posibles"
-          );
+          $("#ammount").html(answers.length);
+          $("#possible").html(correct.length);
         })
         .hover(function () {
           if ($(this).attr("data-click-state") == 0) {
