@@ -94,7 +94,7 @@ function addTable() {
     if (k === 0) {
       header.addClass("derechosHeader").append($("<h1>").text("Derechos"));
     } else {
-      header.css("background-image", "url(content/ods-" + k + ".png)");
+      header.css("background-image", "url(../content/ods-" + k + ".png)");
     }
     table.append(header);
   }
