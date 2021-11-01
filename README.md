@@ -1,4 +1,3 @@
 # UNFPA-act1
-This is an activity to be used in a moodle course for UNFPA
-
+this is a compilation of activities made for a moodle course by UNFPA
 Copyright (C) 2021 Saúl Hernández
