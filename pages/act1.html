@@ -5,13 +5,6 @@
   <head>
     <title>UNFPA - act 1</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
-      rel="stylesheet"
-    />
-
     <link rel="stylesheet" type="text/css" href="../styles/act1.css" />
     <script src="../js/act1.js"></script>
     <script
@@ -22,15 +15,39 @@
   </head>
 
   <body>
-    <div id="here_table">
-      <div id="controls" style="background-color: gray">
-        <button onclick="checkAnswers()" status="0">check</button>
-        <h2 id="message">
-          haz seleccionado <span id="ammount"></span> de
-          <span id="possible"></span>
-          respuestas posibles
-        </h2>
-      </div>
+    <div style="display: flex">
+      <img class="logos" src="../content/logoUNFPA.jpeg" alt="logoUNFPA" />
+      <img
+        class="logos"
+        src="../content/logoGeneracion2030.jpeg"
+        alt="logoGeneracion2030"
+        style="margin-left: auto"
+      />
     </div>
+
+    <div style="display: flex">
+      <div
+        style="width: 85vw; height: 2vh; background-color: #00add8; float: left"
+      ></div>
+      <div
+        style="
+          width: 15vw;
+          height: 2vh;
+          background-color: #d56d35;
+          margin-left: auto;
+        "
+      ></div>
+    </div>
+
+    <div id="controls">
+      <button onclick="checkAnswers()" status="0">check</button>
+      <h2 id="message">
+        haz seleccionado <span id="ammount"></span> de
+        <span id="possible"></span>
+        respuestas posibles
+      </h2>
+    </div>
+
+    <div id="here_table"></div>
   </body>
 </html>

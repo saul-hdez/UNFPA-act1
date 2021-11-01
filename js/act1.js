@@ -92,7 +92,9 @@ function addTable() {
   for (k = 0; k <= 17; k++) {
     var header = $("<th>").addClass("tabHeader");
     if (k === 0) {
-      header.addClass("derechosHeader").append($("<h1>").text("Derechos"));
+      header
+        .addClass("derechosHeader")
+        .append($("<h1>").text("Derechos").css("margin", "0%"));
     } else {
       header.css("background-image", "url(../content/ods-" + k + ".png)");
     }
