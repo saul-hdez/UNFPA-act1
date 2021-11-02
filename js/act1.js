@@ -123,7 +123,7 @@ function addTable() {
           if ($(this).attr("data-click-state") == 1) {
             //remove color
             $(this).attr("data-click-state", 0);
-            $(this).css("background-color", "transparent");
+            $(this).css("background-color", "rgba()");
             const index = answers.indexOf($(this).attr("id"));
             if (index > -1) {
               answers.splice(index, 1);
