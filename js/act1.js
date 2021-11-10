@@ -90,7 +90,7 @@ function addTable() {
 
   //add headers
   for (k = 0; k <= 17; k++) {
-    var header = $("<th>").addClass("tabHeader");
+    var header = $("<th>").addClass("tabHeader").addClass("sticky");
     if (k === 0) {
       header
         .addClass("derechosHeader")
@@ -123,7 +123,7 @@ function addTable() {
           if ($(this).attr("data-click-state") == 1) {
             //remove color
             $(this).attr("data-click-state", 0);
-            $(this).css("background-color", "rgba()");
+            $(this).css("background-color", "transparent");
             const index = answers.indexOf($(this).attr("id"));
             if (index > -1) {
               answers.splice(index, 1);

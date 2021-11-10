@@ -1,21 +1,9 @@
-body {
-  margin: 0px;
-  background-color: white;
-  padding: 1px;
-}
-
 #controls {
   margin: 30px 50px 30px;
 }
-#here_table {
-  display: flex;
-  /* background image*/
-  background-image: url(../content/huellaTransparente.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: right -240px bottom;
-}
+
 table {
+  margin: 0 50px 50px;
   text-align: left;
   vertical-align: middle;
   position: relative;
@@ -29,9 +17,6 @@ td {
   padding: 0.25rem;
 }
 th {
-  padding: 0px;
-  position: sticky;
-  top: 0; /*Don't forget this, required for the stickiness */
   /*background-size: cover;*/
   background-size: contain;
   background-position: center;
@@ -45,11 +30,4 @@ th {
 .emptyCell {
   text-align: center;
   cursor: pointer;
-}
-
-.logos {
-  margin: 30px 50px 30px;
-  height: 6vw;
-  min-height: 80px;
-  max-height: 200px;
 }
