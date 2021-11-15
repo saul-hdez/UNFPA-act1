@@ -1,6 +1,6 @@
 window.onload = function () {
   addTable();
-  addFooter();
+  //addFooter()
 
   window.scrollTo(0, 0);
 };
@@ -109,7 +109,7 @@ function addTable() {
   $("#here_table").append(table);
 }
 
-function addFooter() {
+/*function addFooter() {
   for (k = 1; k <= 17; k++) {
     var footer = $("<li>").addClass("footerImg");
 
@@ -117,7 +117,7 @@ function addFooter() {
 
     $(".footer").append(footer);
   }
-}
+}*/
 
 function checkAnswers() {
   $(".emptyCell").html("&nbsp;");
