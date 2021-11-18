@@ -3,6 +3,22 @@ window.onload = function () {
   //addFooter()
 
   window.scrollTo(0, 0);
+
+  $(".checkButton").click(() => {
+    $("#myModal").css("display", "block");
+    checkAnswers();
+  });
+
+  $(".close").click(() => {
+    $("#myModal").css("display", "none");
+  });
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == document.getElementById("myModal")) {
+    $("#myModal").css("display", "none");
+  }
 };
 
 let actividades = [
@@ -24,6 +40,7 @@ let actividades = [
 ];
 let hombres = [];
 let mujeres = [];
+let filas = [];
 
 function addTable() {
   //create table
@@ -76,16 +93,51 @@ function addTable() {
             $(this).attr("data-click-state", 0);
             $(this).text("");
 
-            const index = answers.indexOf($(this).attr("id"));
-            if (index > -1) {
-              answers.splice(index, 1);
+            let index;
+            if ($(this).attr("id").slice(-1) === "0") {
+              index = mujeres.indexOf(
+                $(this).attr("id").substr(0, $(this).attr("id").indexOf("-"))
+              );
+            } else {
+              index = hombres.indexOf(
+                $(this).attr("id").substr(0, $(this).attr("id").indexOf("-"))
+              );
+            }
+
+            let index2 = filas.indexOf(
+              $(this).attr("id").substr(0, $(this).attr("id").indexOf("-"))
+            );
+            if (index2 > -1) {
+              filas.splice(index2, 1);
+            }
+
+            if ($(this).attr("id").slice(-1) === "0") {
+              if (index > -1) {
+                mujeres.splice(index, 1);
+              }
+            } else {
+              if (index > -1) {
+                hombres.splice(index, 1);
+              }
             }
           } else {
             //color
             $(this).attr("data-click-state", 1);
             $(this).text("❎");
 
-            answers.push($(this).attr("id"));
+            filas.push(
+              $(this).attr("id").substr(0, $(this).attr("id").indexOf("-"))
+            );
+
+            if ($(this).attr("id").slice(-1) === "0") {
+              mujeres.push(
+                $(this).attr("id").substr(0, $(this).attr("id").indexOf("-"))
+              );
+            } else {
+              hombres.push(
+                $(this).attr("id").substr(0, $(this).attr("id").indexOf("-"))
+              );
+            }
           }
         })
         .hover(function () {
@@ -120,48 +172,30 @@ function addTable() {
 }*/
 
 function checkAnswers() {
-  $(".emptyCell").html("&nbsp;");
+  let filasCheck = [...new Set(filas)];
 
-  //answered correctly
-  rightAnswered = answers.map((answer) => {
-    if (correct.includes(answer)) {
-      return answer;
+  if (filasCheck.length < 15) {
+    $("#modalText").html(
+      "Sigue trabajando, te faltan algunas filas de responder"
+    );
+    console.log("faltan");
+    return;
+  }
+
+  let matches = 0;
+  for (let row = 0; row <= 15; row++) {
+    if (hombres.includes(row.toString()) && mujeres.includes(row.toString())) {
+      matches++;
     }
-  });
-  rightAnswered = rightAnswered.filter((x) => x !== undefined);
-
-  //answered wrong
-  wrongAnswered = answers.map((answer) => {
-    if (!correct.includes(answer)) {
-      return answer;
-    }
-  });
-  wrongAnswered = wrongAnswered.filter((x) => x !== undefined);
-
-  //missing to answer
-  missingAnswers = correct.map((answer) => {
-    if (!answers.includes(answer)) {
-      return answer;
-    }
-  });
-  missingAnswers = missingAnswers.filter((x) => x !== undefined);
-
-  console.log(correct);
-  console.log(answers);
-  console.log(rightAnswered);
-  console.log(wrongAnswered);
-  console.log(missingAnswers);
-
-  // Returns a Promise that resolves after "ms" Milliseconds
-  const timer = (ms) => new Promise((res) => setTimeout(res, ms));
-
-  rightAnswered.map((cell) => {
-    $("#" + cell).text("✔️");
-  });
-  wrongAnswered.map((cell) => {
-    $("#" + cell).text("❌");
-  });
-  missingAnswers.map((cell) => {
-    $("#" + cell).text("⚠️");
-  });
+  }
+  //display messages
+  if (matches > 7) {
+    $("#modalText").html(
+      "Seguro llevas un poco más de tiempo cuestionando todas estas conductas y cambiando tu entorno. Recuerda que hay un paso grande entre pensamiento y acción ¡No dudes más! Piensa y actúa para construir un mundo más equitativo que el que te ha tocado vivir ¡Comparte información!, ¡la lucha es de todas y todos!"
+    );
+  } else {
+    $("#modalText").html(
+      "¡Estás en el momento perfecto para empezar a cuestionarte todos estos estereotipos con los que llevas viviendo un rato! Aún tienes varios pensamientos patriarcales y machistas rondando por tu cabeza, pero ¡no te preocupes: con reflexión de la información que posees y nuevos puntos de vista puedes reconstruir significados que te lleven a una vida más plena e igualitaria!"
+    );
+  }
 }
