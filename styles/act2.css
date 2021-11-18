@@ -40,6 +40,7 @@ th {
   margin-top: 50px;
   width: 62vw;
   display: flex;
+  min-width: 900px;
 }
 
 .instText {
