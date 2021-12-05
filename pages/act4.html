@@ -6,47 +6,64 @@
     <title>UNFPA - act 4</title>
     <link rel="icon" type="image/png" href="../content/huella2030.png" />
 
-    <link rel="stylesheet" type="text/css" href="../styles/act2.css" />
-    <script src="../js/act2.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/common.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/act4.css" />
+    <script src="../js/act4.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script>
-      const template = document.querySelector("template");
-      const node = document.importNode(template.content, true);
-      document.body.appendChild(node);
-    </script>
+    <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet" />
   </head>
 
   <body>
-    <div style="display: flex; flex-wrap: wrap">
-      <img
-        class="logos"
-        src="../content/logoUNFPATransparente.png"
-        alt="logoUNFPA"
-      />
-      <img
-        class="logos"
-        src="../content/logoGeneracion2030Transparente.png"
-        alt="logoGeneracion2030"
-        style="margin-left: auto"
-      />
+    <div class="banner">
+      <div style="display: flex; flex-wrap: wrap; background-color: white;">
+        <img
+          class="logos"
+          src="../content/logoUNFPATransparente.png"
+          alt="logoUNFPA"
+        />
+        <img
+          class="logos"
+          src="../content/logoGeneracion2030Transparente.png"
+          alt="logoGeneracion2030"
+          style="margin-left: auto"
+        />
+      </div>
+
+      <div style="display: flex">
+        <div
+          style="
+            width: 85vw;
+            height: 2vh;
+            background-color: #00add8;
+            float: left;
+          "
+        ></div>
+        <div
+          style="
+            width: 15vw;
+            height: 2vh;
+            background-color: #d56d35;
+            margin-left: auto;
+          "
+        ></div>
+      </div>
     </div>
 
-    <div style="display: flex">
-      <div
-        style="width: 85vw; height: 2vh; background-color: #00add8; float: left"
-      ></div>
-      <div
-        style="
-          width: 15vw;
-          height: 2vh;
-          background-color: #d56d35;
-          margin-left: auto;
-        "
-      ></div>
+    <div class="content">
+      <div class="instructions">
+        <h2 class="instText">En la siguiente tabla marca con una X las actividades en las que se han podido desarrollar las mujeres cercanas a ti.</h2>
+      </div>
+      <div id="here_table_mujeres"></div>
+
+      <div class="instructions">
+        <h2 class="instText">Ahora piensa en los hombres cercanos a ti, y marca con un X las actividades que han podido desarrollar en su vida.</h2>
+      </div>
+      <div id="here_table_hombres"></div>
+
     </div>
   </body>
 </html>
