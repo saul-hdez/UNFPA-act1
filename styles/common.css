@@ -3,7 +3,6 @@ html {
   font-size: clamp(100%, 1rem + 2vw, 24px);
 }
 
-
 body {
   margin: 0px;
   background-color: white;
@@ -16,37 +15,11 @@ body {
   background-position: right -240px bottom;
 }
 
-.banner {
-
-}
-
 .logos {
   margin: 30px 50px 30px;
   height: 6vw;
   min-height: 80px;
   max-height: 200px;
-}
-
-.footer {
-  padding: 0;
-  margin: 0;
-  margin-top: 50px;
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-}
-
-.footerImg {
-  padding: 5px;
-  margin: 5px;
-  line-height: 50px;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
-  width: 3vw;
-  height: 3vw;
-  background-size: contain;
-  background-position: center;
 }
 
 .sticky {

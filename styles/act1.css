@@ -1,7 +1,3 @@
-#controls {
-  margin: 30px 50px 30px;
-}
-
 table {
   margin: 0 50px 50px;
   text-align: left;
@@ -9,6 +5,7 @@ table {
   position: relative;
   border-collapse: collapse;
 }
+
 th,
 td {
   border: 1px solid #f7f7f7;
@@ -16,6 +13,7 @@ td {
   height: 5vw;
   padding: 0.25rem;
 }
+
 th {
   /*background-size: cover;*/
   background-size: contain;
@@ -24,9 +22,11 @@ th {
   background-color: white;
   border: white;
 }
+
 .derechosHeader {
   width: 15vw;
 }
+
 .emptyCell {
   text-align: center;
   cursor: pointer;
