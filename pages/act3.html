@@ -52,6 +52,7 @@
     border-radius: 12px;
     height: 65vh;
     width: 30vw;
+    font-size: large;
     padding: 1rem;
     position: relative;
   }
@@ -75,11 +76,11 @@
 
   #thermometer .amount {
     border-top: 1px solid #E11484;
-    color: #E11484;
+    color: black;
     font-family: Trebuchet MS;
     font-weight: bold;
-    padding: 0 75px 0 0;
-    display: none;
+    padding: 0 75px 0 65px;
+    display: block;
   }
 
   #thermometer .progress {
@@ -90,8 +91,9 @@
     left: 5px;
     margin-bottom: 0 !important;
     position: absolute;
-    width: 90%;
+    width: 88%;
     z-index: 100;
+    overflow:hidden
   }
   
   .bulb {
@@ -125,7 +127,7 @@
 ></script>
 
 <script>
-  let preguntas = ["¿Te preocupan las realidades de las personas que tienen menos privilegios que tú?", "¿Crees que la pobreza es una consecuencia humana, por tanto, tiene una solución humana?", "¿Consideras que se puede conseguir el desarrollo siendo amigables con el ambiente?","¿Estás de acuerdo con que hombres y mujeres participen de manera igualitaria en los procesos de cambio?","¿Te gustaría poder contribuir a la generación de empleo y al mismo tiempo al desarrollo de tu comunidad?","¿Sabes que hay ONGs que financian proyectos e iniciativas juveniles en el mundo?","Tu agencia de cambio está en proceso de desarrollo ¡Enhorabuena!","Felicidades, tu agencia de cambio se esta desarrollando","Felicidades, tienes toda la actitud de agente de cambio"];
+  let preguntas = ["¿Te preocupan las realidades de las personas que tienen menos privilegios que tú?", "¿Crees que la pobreza es una consecuencia humana, por tanto, tiene una solución social?", "¿Consideras que se puede conseguir el desarrollo siendo amigables con el ambiente?","¿Estás de acuerdo con que hombres y mujeres participen de manera igualitaria en los procesos de cambio?","¿Te gustaría poder contribuir a la generación de empleo y al mismo tiempo al desarrollo de tu comunidad?","¿Sabes que hay ONGs que financian proyectos e iniciativas juveniles en el mundo?","Tu agencia de cambio está en proceso de desarrollo ¡Enhorabuena!","Felicidades, tu agencia de cambio se esta desarrollando","Felicidades, tienes toda la actitud de agente de cambio"];
 
   let index = 0;
 
@@ -163,6 +165,8 @@
   function updateThermometer(incremento){
     const number = parseInt(parseFloat($("#ProgressAmount").text()));
     $("#ProgressAmount").text(number+incremento);
+    $(".progress").css("overflow","visible");
+
     thermometer();
       $("button").prop( "disabled", true );
 
